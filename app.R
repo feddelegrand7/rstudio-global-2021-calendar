@@ -28,6 +28,34 @@ ui <- navbarPage(
   'rstudio::global("schedule")',
   theme = theme,
   tabPanel(
+    
+    # adding a skip link -----------------------------------
+     a("If you're using a screen reader,
+      the officiel RStudio website is more adapted,
+      do you want to be redirected",
+      href = "https://global.rstudio.com/student/all_events",
+      id = "invisible"),
+    htmltools::tags$head(htmltools::tags$style("
+      #invisible {
+      position: absolute;
+      height: 30px;
+      left: 50%;
+      top: -40px;
+      transform: translateY(-100%);
+      transition: transform 0.3s;
+      background: white;
+      color: steelblue;
+      padding: 8px;
+      z-index: 9999;
+      border-radius: 10px;
+      font-weight: bold;
+      }
+
+      #invisible:focus {
+      top: 20px;
+      }
+      ")),
+  # end of a skip link ----------------------------------------------------
     title = "Schedule",
     id = "schedule",
     div(
